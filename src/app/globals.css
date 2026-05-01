@@ -129,4 +129,6 @@ li::before { content: "▹ "; color: var(--accent-color); }
 
 .btn-download:hover {
   background-color: #0648e1;
+
 }
+
