@@ -114,3 +114,19 @@ li::before { content: "▹ "; color: var(--accent-color); }
   background: var(--accent-color);
   color: #0B1120;
 }
+.btn-download {
+  padding: 12px 24px;
+  background-color:  #0648e1; /* لون الخلفية */
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #0648e1;
+}

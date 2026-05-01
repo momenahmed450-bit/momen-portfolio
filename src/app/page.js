@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 
 import React from 'react'
 import { motion } from 'framer-motion'
@@ -25,7 +26,7 @@ const Page = () => {
           className="profile-img" 
         />
         <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Momen Ahmed Mohamed | Junior Full-Stack Web Developer
+          Momen Ahmed Mohamed |  Full-Stack Web Developer
         </motion.h1>
         <p className="hero-subtitle">Building scalable web applications & seamless user experiences</p>
         
@@ -37,14 +38,15 @@ const Page = () => {
           >
             View Projects
           </motion.a>
-          <motion.a 
-            href="/Momen_Ahmed_FULL STACK.pdf" 
-            download 
-            className='bt cv-bt'
-            whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(0, 210, 255, 0.8)" }}
-          >
-            Download CV ▹
-          </motion.a>
+        <motion.a 
+  href="/my-cv.pdf" 
+  download="My_Name_CV.pdf" 
+  className="btn-download"
+  style={{ display: 'inline-block', textDecoration: 'none' }} // لضمان ظهور التنسيق ككتلة زر
+  whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(0, 210, 255, 0.8)" }}
+>
+  Download CV ▹
+</motion.a>
         </div>
       </header>
 
@@ -62,7 +64,7 @@ const Page = () => {
 
         <motion.div className="project-inner-card" whileHover={{ x: 10 }} style={{ marginBottom: '15px' }}>
           <div className="project-header">
-            <h3>Professional Training</h3>
+            <h3>Certificates and Courses</h3>
             <span className="tag">Certified</span>
           </div>
           <p>Professional Diploma in Full Stack Web Development from AMIT Learning.</p>
@@ -73,7 +75,7 @@ const Page = () => {
             <h3>Location</h3>
             <span className="tag">Current</span>
           </div>
-          <p>Based in Alexandria, Egypt - Open for hybrid and remote opportunities.</p>
+          <p>Based in Alexandria, Egypt - Open for on site & hybrid & remote opportunities.</p>
         </motion.div>
       </motion.section>
 
@@ -149,19 +151,67 @@ const Page = () => {
             <a href="https://e-commerce-react-sable.vercel.app/" target="_blank" className="contact-link">Live Demo ▹</a>
           </div>
         </motion.div>
+<motion.div className="project-inner-card cert-card" whileHover={{ scale: 1.02 }}>
+  <div className="project-header">
+    <h3>Full Stack PHP Diploma</h3>
+    <span className="tag">Grade: 95%</span>
+  </div>
 
-        <motion.div className="project-inner-card cert-card" whileHover={{ x: 10 }}>
-          <div className="project-header">
-            <h3>Full Stack PHP Diploma - AMIT Learning</h3>
-            <span className="tag" style={{ background: 'rgba(255, 215, 0, 0.2)', color: '#ffd700' }}>Grade: 95%</span>
-          </div>
-          <p>Certified success in Full Stack PHP development including Laravel 12 and React.</p>
-          <div style={{ marginTop: '10px' }}>
-            <a href="/Mo'men Ahmed Mohamed.pdf" download className="contact-link" style={{ color: '#ffd700', '--underline-color': '#ffd700' }}>
-              Download Certificate ▹
-            </a>
-          </div>
-        </motion.div>
+  {/* عرض السكرين شوت الخاصة بالشهادة */}
+<motion.div className="project-inner-card cert-card" whileHover={{ scale: 1.02 }}>
+  <div className="project-header">
+    <h3>Full Stack PHP Diploma</h3>
+    <span className="tag">Grade: 95%</span>
+  </div>
+
+  <p style={{ marginTop: '10px' }}>Certified success in Full Stack PHP development.</p>
+
+  {/* ⬇️ حاوية الشهادة - تم تعديلها لتصغير الحجم وتوسيط الصورة ⬇️ */}
+  <div 
+    className="certificate-image-container"
+    style={{ 
+      position: 'relative', 
+      // --- التعديلات الرئيسية هنا ---
+      maxWidth: '400px', // 💡 حدد أقصى عرض تريده للشهادة هنا (مثلاً 400px)
+      margin: '20px auto', // 💡 لتوسيط الصورة في المنتصف وإضافة مسافة عمودية
+      // ----------------------------
+      width: '100%', 
+      height: 'auto', 
+      borderRadius: '8px', 
+      overflow: 'hidden',
+      border: '1px solid #444', 
+      boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+      aspectRatio: '1 / 1.414', // 💡 (اختياري) يحافظ على أبعاد الشهادة A4
+    }}
+  >
+    <Image 
+      // استخدم نفس المسار الصحيح لديك
+      src="/images/image.png" 
+      alt="Full Stack PHP Diploma"
+      layout="fill" // 💡 استخدم 'fill' هنا لجعل الصورة تملأ الحاوية ذات الحجم المحدد
+      objectFit="contain" // 💡 يضمن ظهور الشهادة بالكامل داخل الحاوية
+      style={{ 
+        borderRadius: '8px'
+      }}
+      priority
+    />
+  </div>
+
+</motion.div>
+
+  <p>Certified success in Full Stack PHP development.</p>
+  
+  <div style={{ marginTop: '10px' }}>
+    <a 
+      // href="/momen-certificate.pdf" // رابط ملف الـ PDF الأصلي للتحميل
+      download="Momen_Ahmed_Certificate.pdf"
+      // className="contact-link"
+      style={{ color: '#ffd700', textDecoration: 'none' }}
+    >
+      Certified  Full Stack PHP development ▹
+    </a>
+  </div>
+</motion.div>
       </motion.section>
 
       {/* Contact Me Section - تم تعديله ليصبح بنظام الـ Inner Cards */}
